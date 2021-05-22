@@ -26,7 +26,6 @@ div {
   padding-bottom: 5px;
 }
 
-
 .container {
   position: relative;
   padding-right: 15px;
@@ -49,6 +48,12 @@ div {
   align-items: center;
 }
 
+.row-content {
+  padding-right: 30px;
+  position: relative;
+  font-weight: 300;
+}
+
 .row-content:after {
   content: "";
   position: absolute;
@@ -58,12 +63,6 @@ div {
   height: 24px;
   background: black;
   opacity: 0.2;
-}
-
-.mail {
-  padding-right: 30px;
-  position: relative;
-  font-weight: 300;
 }
 
 .mail-img {
@@ -76,16 +75,10 @@ div {
 }
 
 .phone {
-  padding-right: 30px;
-  position: relative;
-  font-weight: 300;
   margin-left: 30px;
   display: flex;
 }
 .social {
-  padding-right: 30px;
-  position: relative;
-  font-weight: 300;
   margin: 0 -5px;
 }
 
