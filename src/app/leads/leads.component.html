@@ -1,0 +1,15 @@
+<div *ngFor="let lead of leads">
+  <div class="card">
+    <div class="card-body">
+      <div>
+        <h3>
+          {{ lead?.Name }}
+        </h3>
+        <p [innerHTML]="lead?.ShortSummary"></p>
+        <button routerLink="/{{ lead?.MobileNumber }}" class="continue-reading">
+          Open
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

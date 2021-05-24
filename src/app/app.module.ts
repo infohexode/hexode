@@ -10,18 +10,24 @@ import { AboutComponent } from './about/about.component';
 import { ArticleComponent } from './article/article.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './Home/Home.component';
+import { LeadsComponent } from './leads/leads.component';
+import { LeadComponent } from './lead/lead.component';
 
 
 
 @NgModule({
-  declarations: [		
+  declarations: [					
     AppComponent,
     NavBarComponent,
     FooterComponent,
     ArticleListsComponent,
     AboutComponent,
       ArticleComponent,
-      NotFoundComponent
+      NotFoundComponent,
+      HomeComponent,
+      LeadsComponent,
+      LeadComponent
    ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
