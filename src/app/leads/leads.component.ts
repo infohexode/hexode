@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Lead } from '../lead';
 import { LeadService } from '../lead.service';
 
 import { SharedService } from '../shared.service';
@@ -11,7 +10,7 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./leads.component.css'],
 })
 export class LeadsComponent implements OnInit {
-  leads: Lead[] = [];
+  leads: any;
   title = 'Blogs';
 
   constructor(
@@ -26,6 +25,15 @@ export class LeadsComponent implements OnInit {
   }
 
   getLeads(): void {
-    this.leadService.getLeads().subscribe((leads) => (this.leads = leads));
+    this.leadService.getLeads().subscribe(
+      response => {
+        console.log(response);
+        this.leads = response['data'];
+        console.log(this.leads);
+      },
+      (error) => {
+        console.log('some error occured');
+      }
+    );
   }
 }

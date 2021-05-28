@@ -24,9 +24,12 @@
     "@angular/platform-server": "~12.0.0",
     "@angular/router": "~12.0.0",
     "@nguniversal/express-engine": "^12.0.0",
+    "bootstrap": "^5.0.1",
     "cors": "^2.8.5",
     "express": "^4.15.2",
+    "flexboxgrid": "^6.3.1",
     "font-awesome": "^4.7.0",
+    "jquery": "^3.6.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

@@ -1,15 +1,28 @@
-<div *ngFor="let lead of leads">
-  <div class="card">
-    <div class="card-body">
-      <div>
-        <h3>
-          {{ lead?.Name }}
-        </h3>
-        <p [innerHTML]="lead?.ShortSummary"></p>
-        <button routerLink="/{{ lead?.MobileNumber }}" class="continue-reading">
+<button routerLink="/addleads" class="btn btn-outline-dark">
+  Add New Lead
+</button>
+
+<table class="table m-t-30 table-striped table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col"><small>Name</small></th>
+      <th scope="col"><small>Company Name</small></th>
+      <th scope="col"><small>Action</small></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lead of leads">
+      <td>
+        {{ lead?.Name }}
+      </td>
+      <td>
+        <p [innerHTML]="lead?.company_name"></p>
+      </td>
+      <td>
+        <button routerLink="/{{ lead?.id }}" class="continue-reading">
           Open
         </button>
-      </div>
-    </div>
-  </div>
-</div>
+      </td>
+    </tr>
+  </tbody>
+</table>

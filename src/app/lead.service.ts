@@ -1,20 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Lead } from './lead';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LeadService {
   constructor(private http: HttpClient) {}
+  private url = 'http://localhost:3002/leads/getLeads';
 
-  getLeads(): Observable<Lead[]> {
-    return this.http.get<Lead[]>('http://localhost:8000/leads');
+  public getLeads() {
+    let myResponse = this.http.get<any>(this.url);
+    return myResponse;
   }
-
-  getLead(MobileNumber: string): Observable<Lead> {
-      console.log(MobileNumber);
-    return this.http.get<Lead>('http://localhost:8000/leads/' + MobileNumber);
+  public getLead(id: string) {
+    let myResponse = this.http.get<any>('http://localhost:3002/leads/getLead/' + id);
+    return myResponse;
   }
 }

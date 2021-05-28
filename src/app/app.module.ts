@@ -13,11 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Home/Home.component';
 import { LeadsComponent } from './leads/leads.component';
 import { LeadComponent } from './lead/lead.component';
+import { LeadAddComponent } from './LeadAdd/LeadAdd.component';
 
 
 
 @NgModule({
-  declarations: [					
+  declarations: [							
     AppComponent,
     NavBarComponent,
     FooterComponent,
@@ -27,7 +28,8 @@ import { LeadComponent } from './lead/lead.component';
       NotFoundComponent,
       HomeComponent,
       LeadsComponent,
-      LeadComponent
+      LeadComponent,
+      LeadAddComponent
    ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

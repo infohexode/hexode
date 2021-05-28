@@ -10,12 +10,12 @@
         </h3>
 
         <div class="meta-info">
-          {{ article.date | date }}
+          {{ article.date  }}
         </div>
         <p [innerHTML]="article.description"></p>
-        <a routerLink="/{{ article.key }}" class="continue-reading"
-          >Continue Reading..</a
-        >
+        
+          Continue Reading..
+        
       </div>
     </div>
   </div>
