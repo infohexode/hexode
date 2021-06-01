@@ -16,6 +16,7 @@ import { HomeComponent } from './Home/Home.component';
 import { LeadsComponent } from './leads/leads.component';
 import { LeadComponent } from './lead/lead.component';
 import { LeadAddComponent } from './LeadAdd/LeadAdd.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -31,7 +32,8 @@ import { LeadAddComponent } from './LeadAdd/LeadAdd.component';
       HomeComponent,
       LeadsComponent,
       LeadComponent,
-      LeadAddComponent
+      LeadAddComponent,
+      LoginComponent
    ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

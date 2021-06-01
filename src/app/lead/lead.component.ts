@@ -25,6 +25,7 @@ export class LeadComponent implements OnInit {
     this.route.params.subscribe(params => {
       const id = params.id;
       this.leadService.getLead(id).subscribe(response => {
+
         console.log(response);
         this.lead = response['data'];
 console.log(this.lead);

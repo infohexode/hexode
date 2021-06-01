@@ -1,0 +1,41 @@
+<div class="row col-12 ">
+  <div class="col-md-6 col-sm-6 image pt-5">
+  </div>
+
+  <div class=" col-md-6  col-sm-6 ">
+    <h3 class="h-color text-center mt-3 ">Login Form</h3>
+
+    <form class="form-theme row px-4 py-4 mb-4 rounded shadow" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+      <div class="col-md-12">
+        <label for="username" class="label-text form-label mb-0 mt-2"> Username</label>
+        <input type="text" class="form-control rounded " formControlName="email" placeholder="Username/Email" required>
+      </div>
+
+      <div class="col-md-12">
+        <label for="password" class="label-text form-label mb-0 mt-2">Password</label>
+        <input type="password" class="form-control rounded lh-sm" formControlName="password" placeholder="Password"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+      </div>
+
+      <div class="col-6 mt-2">
+        <input type="checkbox" value="" class=" " id="autoSizingCheck">
+        <label for="autoSizingCheck" class="form-check-label form-label label-text pb-1"> Remembe me </label>
+      </div>
+
+      <div class="col-6 mt-2">
+        <p class="text-end"><a href="https://www.google.com" class=" forget-pass">Forget Password ?</a></p>
+      </div>
+
+      <div class="col-md-12">
+        <button class="form-control lh-sm mt-2 btn-login" type="submit">
+          <h5>Login</h5>
+        </button>
+      </div>
+
+      <div class="col-md-12 col-xs-12 text-center  mt-2">
+        <p class="label-text">Not a member?<a [routerLink]="['/signup']" class="register">Register</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

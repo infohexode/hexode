@@ -58,5 +58,10 @@
     <a routerLink="/articles" class="row-content">Articles</a>
     <a routerLink="/leads" class="row-content">Leads</a>
     <a routerLink="/about" class="row-content">About</a>
+    <div class="nav-item" style="padding-right: 30px" *ngIf="!currentUser">
+      <a
+        class="nav-link nav-link-css" routerLink="/login"
+        >Login</a>
+      </div>
   </nav>
 </header>

@@ -12,6 +12,7 @@ import { SharedService } from '../shared.service';
 export class LeadsComponent implements OnInit {
   leads: any;
   title = 'Blogs';
+  currentUser = JSON.parse(localStorage.getItem('currentUser')!);
 
   constructor(
     private leadService: LeadService,
@@ -26,8 +27,9 @@ export class LeadsComponent implements OnInit {
 
   getLeads(): void {
     this.leadService.getLeads().subscribe(
+      
       response => {
-        console.log(response);
+        console.log(this.currentUser);
         this.leads = response['data'];
         console.log(this.leads);
       },

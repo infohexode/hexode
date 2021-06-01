@@ -1,4 +1,4 @@
-<div class="lead-add position-absolute end-0">
+<div class="lead-add position-absolute end-0" *ngIf="currentUser.role==='admin'">
   <button routerLink="../addleads" class="btn btn-outline-dark">
     Add New Lead
   </button>
