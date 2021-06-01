@@ -14,7 +14,17 @@ export class LeadService {
     return myResponse;
   }
   public getLead(id: string) {
-    let myResponse = this.http.get<any>('http://localhost:3002/leads/getLead/' + id);
+    let myResponse = this.http.get<any>(
+      'http://localhost:3002/leads/getLead/' + id
+    );
     return myResponse;
+  }
+
+  register(data: any): Observable<any> {
+    return this.http.post(`http://localhost:3002/leads/add`, data);
+  }
+
+  upload(data: any): Observable<any> {
+    return this.http.post<any>(`http://localhost:3002/leads/upload`, data);
   }
 }

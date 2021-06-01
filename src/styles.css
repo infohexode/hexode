@@ -11,5 +11,13 @@
 } */
 
 .m-t-30 {
-    margin-top: 30px;
+    margin-top: 30px !important;
   }
+
+.m-l-30{
+    margin-left: 30px !important;
+}
+
+.m{
+    margin:30px !important;
+}
