@@ -26,6 +26,9 @@ export class LeadService {
     return this.http.post(serverUrl + 'leads/add', data);
   }
 
+  updateStatus(data: any): Observable<any> {
+    return this.http.post(serverUrl + 'lead/statusupdate', data);
+  }
   upload(data: any): Observable<any> {
     return this.http.post<any>(serverUrl + 'leads/upload', data);
   }
