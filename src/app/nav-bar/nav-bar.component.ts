@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject, Observable } from "rxjs";
+import { LeadService } from '../lead.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,14 +13,16 @@ export class NavBarComponent implements OnInit {
   currentUser = JSON.parse(localStorage.getItem('currentUser')!);
 
 
-  constructor(private router: Router,private activatedRoute: ActivatedRoute,) { }
-
+  constructor(private router: Router,private activatedRoute: ActivatedRoute,
+    private leadService: LeadService) { }
+  loginStatus$! : Observable<boolean> 
   ngOnInit(): void {
+    this.loginStatus$ = this.leadService.isLoggesIn;
   }
 
-  logout(){    
-    localStorage.clear();
+  logout(){ 
+    this.leadService.logout();
     this.currentUser = ""
-    this.router.navigate(['/Home'], { relativeTo: this.activatedRoute })          
+    this.router.navigate(['/home'], { relativeTo: this.activatedRoute })        
   }
 }

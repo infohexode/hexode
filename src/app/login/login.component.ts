@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { LeadService } from '../lead.service';
-
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
@@ -15,32 +19,31 @@ export class LoginComponent implements OnInit {
     private leadService: LeadService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
+      email: new FormControl("", [Validators.required]),
+      password: new FormControl("", [Validators.required]),
     });
   }
 
-  loginProcess() {
-    console.log('inside login')
-    this.leadService.login(this.formGroup.value).subscribe((result) => {
-
-      if (result.data.match == true) {
-        localStorage.setItem(
-          'currentUser',
-          JSON.stringify(result.data.payload)
-        );
-        localStorage.setItem('token', JSON.stringify(result.data.token));
-      
-    this.router.navigate(['/home'], { relativeTo: this.activatedRoute });
-        return result;
-
-      } else {
-        this.router.navigate(['/home'], { relativeTo: this.activatedRoute });
+  loginProcess(){
+    
+    this.leadService.login(this.formGroup.value).subscribe(result=>{
+      if(result.data.match == true){
+       //this.toastr.success(result.data.payload.userName, 'Welcome');
+        if(result.data.payload.role == 'corporate' || result.data.payload.role == 'individual'){
+        this.router.navigate(['/history'], { relativeTo: this.activatedRoute })  
+      }    
+      else{
+        this.router.navigate(['/leads'], { relativeTo: this.activatedRoute })  
+      }    
       }
-    });
-  }
+     else {
+      //this.toastr.error("Please try again", "Invalid credentials");
+    }
+  })
+}
+
 }

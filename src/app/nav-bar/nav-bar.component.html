@@ -54,14 +54,18 @@
     </div>
   </div>
   <nav class="float-right">
-    <a routerLink="/Home" class="row-content">Home</a>
+    <a routerLink="/home" class="row-content">Home</a>
     <a routerLink="/articles" class="row-content">Articles</a>
     <a routerLink="/leads" class="row-content">Leads</a>
     <a routerLink="/about" class="row-content">About</a>
-    <div class="nav-item" style="padding-right: 30px" *ngIf="!currentUser">
+   
       <a
-        class="nav-link nav-link-css" routerLink="/login"
-        >Login</a>
-      </div>
+      class="row-content" *ngIf="!currentUser"
+        [routerLink]="['login']"
+        ><b>Login</b></a
+      >
+   
+      <a *ngIf="currentUser"  class="row-content" (click)="logout()">Logout</a>
+ 
   </nav>
 </header>

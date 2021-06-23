@@ -21,7 +21,7 @@ import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
-  declarations: [							
+  declarations: [								
     AppComponent,
     NavBarComponent,
     FooterComponent,

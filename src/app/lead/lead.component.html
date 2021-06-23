@@ -19,87 +19,39 @@
     <p [innerHTML]="lead?.PhoneNumber"></p>
     <p [innerHTML]="lead?.AlternateMobileNumber"></p>
 
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
+    <form
+      class="row m g-3"
+      [formGroup]="updatestatus"
+      (ngSubmit)="updateStatus()"
     >
-      Update Comments
-    </button>
+      <input type="hidden" [ngModel]="lead?._id" formControlName="id" />
 
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Status</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <form
-            class="row m g-3"
-            [formGroup]="updatestatus"
-            (ngSubmit)="updateStatus()"
-          >
-            <div class="modal-body">
-              <input
-                type="hidden"
-                class="form-control"
-                value="{{lead?.id}}"
-                formControlName="id"
-              />
-
-             
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Status</label
-                >
-                <select
-                  class="form-select"
-                  formControlName="status"
-                  id="inputGroupSelect01"
-                >
-                  <option selected>Choose...</option>
-                  <option value="1">Need to Call Again</option>
-                  <option value="2">N/A</option>
-                  <option value="3">Not Responded</option>
-                </select>
-              </div>
-              <div class="input-group">
-                <span class="input-group-text">Comments</span>
-                <textarea
-                  class="form-control"
-                  aria-label="With textarea"
-                  formControlName="comment"
-                ></textarea>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="submit" class="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </form>
-        </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Status</label>
+        <select
+          class="form-select"
+          formControlName="status"
+          id="inputGroupSelect01"
+        >
+          <option selected>Choose...</option>
+          <option value="1">Need to Call Again</option>
+          <option value="2">N/A</option>
+          <option value="3">Not Responded</option>
+        </select>
       </div>
-    </div>
+      <div class="input-group">
+        <span class="input-group-text">Comments</span>
+        <textarea
+          class="form-control"
+          aria-label="With textarea"
+          formControlName="comment"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save changes</button>
+    </form>
+
+    <p [innerHTML]="lead?.id"></p>
     <p [innerHTML]="lead?.email1"></p>
     <p [innerHTML]="lead?.email2"></p>
     <p [innerHTML]="lead?.website"></p>

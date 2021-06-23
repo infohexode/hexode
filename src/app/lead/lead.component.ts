@@ -3,6 +3,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LeadService } from '../lead.service';
 import { SharedService } from '../shared.service';
+
 import {
   FormBuilder,
   FormControl,
@@ -48,9 +49,13 @@ export class LeadComponent implements OnInit {
       comment: new FormControl('', [Validators.required])
     })
   }
+
+  
+
   updateStatus() {
-    //console.log(this.route.snapshot.queryParamMap);
-    //this.updatestatus.value.id=this.route;
+    
+    //this.updatestatus.value.id=id;
+    console.log(this.updatestatus.value);
     this.leadService
       .updateStatus(this.updatestatus.value)
       .subscribe((result) => {

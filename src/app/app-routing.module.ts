@@ -8,8 +8,9 @@ import { LeadAddComponent } from './LeadAdd/LeadAdd.component';
 
 import { LeadComponent } from './lead/lead.component';
 import { HomeComponent } from './Home/Home.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
 
 const routes: Routes = [
   
@@ -18,10 +19,10 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: '404', component: NotFoundComponent },
   { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'lead/:id', component: LeadComponent },
     { path: '**', component: NotFoundComponent },
-  { path: 'home', component: HomeComponent },
 ];
 
 @NgModule({
