@@ -33,12 +33,9 @@ export class LoginComponent implements OnInit {
     this.leadService.login(this.formGroup.value).subscribe(result=>{
       if(result.data.match == true){
        //this.toastr.success(result.data.payload.userName, 'Welcome');
-        if(result.data.payload.role == 'corporate' || result.data.payload.role == 'individual'){
-        this.router.navigate(['/history'], { relativeTo: this.activatedRoute })  
-      }    
-      else{
-        this.router.navigate(['/leads'], { relativeTo: this.activatedRoute })  
-      }    
+     
+        this.router.navigate(['/dashboard'], { relativeTo: this.activatedRoute })  
+      
       }
      else {
       //this.toastr.error("Please try again", "Invalid credentials");

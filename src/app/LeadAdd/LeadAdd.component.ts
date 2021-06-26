@@ -55,7 +55,6 @@ export class LeadAddComponent implements OnInit {
   }
 
   registerProcess() {
-    console.log(this.formGroup.value);
     this.leadService.register(this.formGroup.value).subscribe((result) => {
       console.log(result.success);
       // if(result.success){
@@ -65,6 +64,7 @@ export class LeadAddComponent implements OnInit {
       //   alert("error in sign up")
       // }
     });
+    this.formGroup.reset();
   }
 
   onFileSelect(event: any) {

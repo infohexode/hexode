@@ -19,34 +19,17 @@
     <p [innerHTML]="lead?.PhoneNumber"></p>
     <p [innerHTML]="lead?.AlternateMobileNumber"></p>
 
-    <form
-      class="row m g-3"
-      [formGroup]="updatestatus"
-      (ngSubmit)="updateStatus()"
-    >
+    <form class="row m g-3" [formGroup]="Assign" (ngSubmit)="AssignNow()">
       <input type="hidden" [ngModel]="lead?._id" formControlName="id" />
-
-      <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Status</label>
-        <select
-          class="form-select"
-          formControlName="status"
-          id="inputGroupSelect01"
+      <select formControlName="AssignedTo">
+        <option
+          *ngFor="let user of users"
+          [ngValue]="user.name"
+          [selected]="user.id === lead.Assignedto || user.Id===users[0].id"
         >
-          <option selected>Choose...</option>
-          <option value="Need to Call Again">Need to Call Again</option>
-          <option value="N/A">N/A</option>
-          <option value="Not Responded">Not Responded</option>
-        </select>
-      </div>
-      <div class="input-group">
-        <span class="input-group-text">Comments</span>
-        <textarea
-          class="form-control"
-          aria-label="With textarea"
-          formControlName="comment"
-        ></textarea>
-      </div>
+          {{ user.name }}
+        </option>
+      </select>
 
       <button type="submit" class="btn btn-primary">Save changes</button>
     </form>

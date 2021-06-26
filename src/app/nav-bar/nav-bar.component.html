@@ -11,7 +11,7 @@
             <i class="phone-img"></i>
             <span class="phone-no"> +91-989 729 1212 </span>
           </div>
-          <div class="social">
+          <div class="social row-content">
             <a
               href="https://twitter.com/stylemix_themes"
               class="social-twitter socials"
@@ -49,23 +49,16 @@
               <i class="fa fa-instagram"></i>
             </a>
           </div>
+          <div class="Login">
+            <a *ngIf="!currentUser" [routerLink]="['login']"
+        ><b>Login</b></a
+      >
+      <a *ngIf="currentUser"  (click)="logout()">Logout</a>
+ 
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <nav class="float-right">
-    <a routerLink="/home" class="row-content">Home</a>
-    <a routerLink="/articles" class="row-content">Articles</a>
-    <a routerLink="/leads" class="row-content">Leads</a>
-    <a routerLink="/about" class="row-content">About</a>
-   
-      <a
-      class="row-content" *ngIf="!currentUser"
-        [routerLink]="['login']"
-        ><b>Login</b></a
-      >
-   
-      <a *ngIf="currentUser"  class="row-content" (click)="logout()">Logout</a>
- 
-  </nav>
+  
 </header>

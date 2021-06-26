@@ -6,32 +6,33 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 
-import { AboutComponent } from './about/about.component';
-
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { HomeComponent } from './Home/Home.component';
 import { LeadsComponent } from './leads/leads.component';
 import { LeadComponent } from './lead/lead.component';
 import { LeadAddComponent } from './LeadAdd/LeadAdd.component';
 import { LoginComponent } from './login/login.component';
+import { DashBoardComponent } from './DashBoard/DashBoard.component';
+import { WidgetsComponent } from './Widgets/Widgets.component';
+import { AssignLeadComponent } from './AssignLead/AssignLead.component';
 
 
 
 @NgModule({
-  declarations: [								
+  declarations: [											
     AppComponent,
     NavBarComponent,
     FooterComponent,
-    AboutComponent,
       NotFoundComponent,
-      HomeComponent,
       LeadsComponent,
       LeadComponent,
       LeadAddComponent,
-      LoginComponent
+      LoginComponent,
+      DashBoardComponent,
+      WidgetsComponent,
+      AssignLeadComponent
    ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

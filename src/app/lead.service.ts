@@ -12,6 +12,11 @@ const serverUrl = environment.baseUrl;
 export class LeadService {
   constructor(private http: HttpClient) {}
   private loginStatus = new BehaviorSubject<boolean>(this.checkLoginStatus());
+  public getUsers() {
+    let myResponse = this.http.get<any>(serverUrl + 'user/getUsers');
+    console.log(myResponse);
+    return myResponse;
+  }
   public getLeads() {
     let myResponse = this.http.get<any>(serverUrl + 'leads/getLeads');
     return myResponse;
@@ -24,9 +29,11 @@ export class LeadService {
   register(data: any): Observable<any> {
     return this.http.post(serverUrl + 'leads/add', data);
   }
-
+  Assign(data: any): Observable<any> {
+    return this.http.post(serverUrl + 'leads/assign', data);
+  }
   updateStatus(data: any): Observable<any> {
-    return this.http.post(serverUrl + 'lead/statusupdate', data);
+    return this.http.post(serverUrl + 'leads/statusupdate', data);
   }
   upload(data: any): Observable<any> {
     return this.http.post<any>(serverUrl + 'leads/upload', data);
@@ -49,6 +56,25 @@ export class LeadService {
             localStorage.setItem('token', JSON.stringify(data.data.token));
             return data;
         }));
+}
+public isAuthenticated(): boolean {
+  const tokenExits = localStorage.getItem("token") ? true : false;
+  const userDetailExits = localStorage.getItem("currentUser") ? true : false; // Check whether the token is expired and return
+  // true or false
+  if (tokenExits && userDetailExits) {
+    return true;
+  }
+  return false;
+}
+
+public isAdmin(): boolean {
+  
+  const currentUser = JSON.parse(localStorage.getItem('currentUser')!);
+  // true or false
+  if (currentUser.role=== 'admin') {
+    return true;
+  }
+  return false;
 }
 
 logout(){

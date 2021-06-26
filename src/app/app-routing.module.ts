@@ -1,27 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-
+import { ActivateGuard } from "./activate.guard";
 import { LeadsComponent } from './leads/leads.component';
 import { LeadAddComponent } from './LeadAdd/LeadAdd.component';
-
-
+import { AssignLeadComponent } from './AssignLead/AssignLead.component';
 import { LeadComponent } from './lead/lead.component';
-import { HomeComponent } from './Home/Home.component';
 import { LoginComponent } from './login/login.component';
+import { DashBoardComponent } from './DashBoard/DashBoard.component';
+import { WidgetsComponent } from './Widgets/Widgets.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
-  
-  { path: 'leads', component: LeadsComponent },
-  { path: 'addleads', component: LeadAddComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'leads', component: LeadsComponent, canActivate: [ActivateGuard], },
+  { path: 'addleads', component: LeadAddComponent, canActivate: [ActivateGuard], },
   { path: '404', component: NotFoundComponent },
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: DashBoardComponent , canActivate: [ActivateGuard], },
   { path: 'login', component: LoginComponent },
-  { path: 'lead/:id', component: LeadComponent },
+  { path: 'lead/:id', component: LeadComponent, canActivate: [ActivateGuard], },
+  { path: 'assign/:id', component: AssignLeadComponent, canActivate: [ActivateGuard], },
+  { path: 'dashboard', component: DashBoardComponent , canActivate: [ActivateGuard], },
+  { path: 'widgets', component: WidgetsComponent , canActivate: [ActivateGuard], },
     { path: '**', component: NotFoundComponent },
 ];
 

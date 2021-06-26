@@ -22,7 +22,7 @@ export class NavBarComponent implements OnInit {
 
   logout(){ 
     this.leadService.logout();
-    this.currentUser = ""
+    this.currentUser = "";
     this.router.navigate(['/home'], { relativeTo: this.activatedRoute })        
   }
 }

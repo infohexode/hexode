@@ -11,16 +11,18 @@ import {
   Validators,
 } from '@angular/forms';
 
-@Component({
-  selector: 'app-lead',
-  templateUrl: './lead.component.html',
-  styleUrls: ['./lead.component.css'],
-})
-export class LeadComponent implements OnInit {
-  lead: any;
-  updatestatus!: FormGroup;
-  uploadForm!: FormGroup;
 
+@Component({
+  selector: 'app-AssignLead',
+  templateUrl: './AssignLead.component.html',
+  styleUrls: ['./AssignLead.component.css']
+})
+export class AssignLeadComponent implements OnInit {
+
+  lead: any;
+  Assign!: FormGroup;
+  uploadForm!: FormGroup;
+  users: any;
   constructor(
     private route: ActivatedRoute,
     private leadService: LeadService,
@@ -28,45 +30,49 @@ export class LeadComponent implements OnInit {
     private titleService: Title,
     private sharedService: SharedService,
     private meta: Meta
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      console.log(params.id);
+     
       const id = params.id;
       this.leadService.getLead(id).subscribe((response) => {
-        console.log(response);
+      console.log(response['data'][0].Assignedto)
         this.lead = response['data'];
-        console.log(this.lead);
+        this.leadService.getUsers().subscribe(
+      
+          response => {
+            
+            this.users = response['data'];
+           
+          },
+          (error) => {
+            console.log('some error occured');
+          }
+        );
         this.titleService.setTitle(
           this.lead[0].Name + this.sharedService.blogTitle
         );
       });
     });
-    this.updatestatus = new FormGroup({
+    this.Assign = new FormGroup({
       id:new FormControl('', [Validators.required]),
-      status: new FormControl('', [Validators.required]),
-      comment: new FormControl('', [Validators.required])
+      AssignedTo: new FormControl('', [Validators.required])
     })
   }
-
-  
-
-  updateStatus() {
-    
-    //this.updatestatus.value.id=id;
-    console.log(this.updatestatus.value);
+  AssignNow() {
     this.leadService
-      .updateStatus(this.updatestatus.value)
+      .Assign(this.Assign.value)
       .subscribe((result) => {
-        console.log(result);
-       //  if(result.success){
-        //  alert("Successfully Updated the Status")
+        console.log(result.data.ok);
+        // if(result.success){
+        //   this.router.navigate['/login']
         // }
         // else{
-         //  alert("Error while updating the Status")
-        //}
+        //   alert("error in sign up")
+        // }
       });
-   
+      
   }
+
 }

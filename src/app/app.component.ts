@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  //currentUser;
+  showUser = false;
+  showAdmin = false;
+  
   title = 'Hexode';
 }
