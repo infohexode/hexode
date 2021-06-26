@@ -7,7 +7,7 @@ import { LeadService } from './lead.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ActivateGuard implements CanActivate {
+export class ActivateAdminGuard implements CanActivate {
   constructor(public LeadService: LeadService,private router: Router) { }
   // canActivate(
   //   next: ActivatedRouteSnapshot,
@@ -16,11 +16,10 @@ export class ActivateGuard implements CanActivate {
   //   return true;
   // }
   canActivate(): boolean {
-    if (!this.LeadService.isAuthenticated()) {
-        this.router.navigate(['login']);
-        return false;
-    }
-    return true;
+    if (!this.LeadService.isAdmin()) {
+      this.router.navigate(['leads']);
+      return false;
+  }
+  return true;
 }
-
 }

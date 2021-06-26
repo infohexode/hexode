@@ -17,11 +17,12 @@ import { LoginComponent } from './login/login.component';
 import { DashBoardComponent } from './DashBoard/DashBoard.component';
 import { WidgetsComponent } from './Widgets/Widgets.component';
 import { AssignLeadComponent } from './AssignLead/AssignLead.component';
+import { AddUserComponent } from './AddUser/AddUser.component';
 
 
 
 @NgModule({
-  declarations: [											
+  declarations: [												
     AppComponent,
     NavBarComponent,
     FooterComponent,
@@ -32,7 +33,8 @@ import { AssignLeadComponent } from './AssignLead/AssignLead.component';
       LoginComponent,
       DashBoardComponent,
       WidgetsComponent,
-      AssignLeadComponent
+      AssignLeadComponent,
+      AddUserComponent
    ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

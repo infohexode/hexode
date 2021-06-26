@@ -29,6 +29,10 @@ export class LeadService {
   register(data: any): Observable<any> {
     return this.http.post(serverUrl + 'leads/add', data);
   }
+   
+  addUser(data: any): Observable<any> {
+    return this.http.post(serverUrl + 'user/add', data);
+  }
   Assign(data: any): Observable<any> {
     return this.http.post(serverUrl + 'leads/assign', data);
   }
